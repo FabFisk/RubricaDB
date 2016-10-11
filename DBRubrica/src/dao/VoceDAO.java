@@ -56,7 +56,6 @@ public class VoceDAO {
 			st.setInt(1, id_r);
 			rs = st.executeQuery();
 			while(rs.next()){
-				if(rs.next()){
 					int id_V = rs.getInt(1);
 					String nome = rs.getString(2);
 					String cognome = rs.getString(3);
@@ -64,7 +63,6 @@ public class VoceDAO {
 					int id_R = rs.getInt(5);
 					v = new Voce(id_V, nome, cognome, telefono, id_R);
 					lista.put(v.getId_voce(), v);
-				}
 			}
 		} catch (SQLException | IOException | PropertyVetoException e) {
 			// TODO Auto-generated catch block
