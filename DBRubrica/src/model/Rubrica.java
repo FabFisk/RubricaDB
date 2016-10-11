@@ -1,9 +1,5 @@
 package model;
 
-import java.util.Map;
-
-import dao.VoceDAO;
-
 public class Rubrica {
 	
 	private int id_rubrica;
