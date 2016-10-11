@@ -2,12 +2,12 @@ package prova;
 
 import java.util.Map;
 
+import dao.RubricaDAO;
 import servizi.ServiziRubrica;
 import model.Rubrica;
 import model.Voce;
-import dao.*;
 
-public class TestMain {
+public class RubricaMain {
 
 	public static void main(String[] args) {
 		
