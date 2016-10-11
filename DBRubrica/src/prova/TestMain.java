@@ -26,9 +26,11 @@ public class TestMain {
 		System.out.println(v3.getId_voce()+"\t"+v3.getNome()+"\t"+v3.getCognome()+"\t"+v3.getTelefono());
 		Voce v4 = g.aggiungiVoce(r, "ddd", "ddd", "444");
 		System.out.println(v4.getId_voce()+"\t"+v4.getNome()+"\t"+v4.getCognome()+"\t"+v4.getTelefono());
+		
 		System.out.println();
 		Voce v5 = g.getVoce(r, "bbb", "bbb");
 		System.out.println(v5.getId_voce()+"\t"+v5.getNome()+"\t"+v5.getCognome()+"\t"+v5.getTelefono());
+		
 		System.out.println();
 		Voce v6 = g.updateVoce(r, "ccc", "ccc", "eee", "eee", "555");
 		System.out.println(v6.getId_voce()+"\t"+v6.getNome()+"\t"+v6.getCognome()+"\t"+v6.getTelefono());
