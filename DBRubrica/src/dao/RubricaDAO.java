@@ -13,17 +13,18 @@ import model.*;
 public class RubricaDAO {
 	
 	//1- Create
-	public boolean creaRubrica(String nome){
-		boolean token = false;
+	public int creaRubrica(String nome){
+		int token = 0;
 		PreparedStatement st = null;
 		try {
 			Connection con = DataSource.getInstance().getConnection();
 			String sql = "INSERT INTO RUBRICA (NOME) VALUES (?)";
-			st = con.prepareStatement(sql);
+			st = con.prepareStatement(sql, new String[]{"ID_RUBRICA"});
 			st.setString(1, nome);
-			int res = st.executeUpdate();
-			if(res>0){
-				token = true;
+			st.executeUpdate();
+			ResultSet rs = st.getGeneratedKeys();
+			if(rs.next()&&rs!=null){
+				token = rs.getInt(1);
 			}
 		} catch (SQLException | IOException | PropertyVetoException e) {
 			// TODO Auto-generated catch block

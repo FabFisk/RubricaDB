@@ -22,7 +22,7 @@ public class DataSource {
 		cpds.setPassword("rubrica");
 		
 		// the settings below are optional
-		cpds.setMinPoolSize(1);
+		cpds.setMinPoolSize(3);
 		cpds.setAcquireIncrement(5);
 		cpds.setMaxPoolSize(20);
 		cpds.setMaxStatements(180);

@@ -1,34 +1,39 @@
 package dao;
 
 import static org.junit.Assert.*;
+import model.Rubrica;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class RubricaDAOTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	
+	static RubricaDAO rDAO = new RubricaDAO();
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void createDelete(){
+		int b = rDAO.creaRubrica("Fabrizio");
+		assertNotEquals(0, b);
+	}
+	
+	@Test
+	public void readTest() {
+		int b = rDAO.creaRubrica("Fabrizio");
+		Rubrica rub = rDAO.trovaRubrica(b);
+		assertNotNull(rub);
+	}
+	
+	@Test
+	public void updatetest(){
+		int b1 = rDAO.creaRubrica("Fabrizio");
+		boolean b2 = rDAO.aggiornaRubrica(b1, "Fabrizio1");
+		assertTrue(b2);
+	}
+	
+	@Test
+	public void deleteTest(){
+		int b1 = rDAO.creaRubrica("Fabrizio");
+		boolean b = rDAO.rimuoviRubrica(b1);
+		assertTrue(b);
 	}
 
 }

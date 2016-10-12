@@ -14,20 +14,21 @@ import utility.DataSource;
 public class VoceDAO {
 	
 	//1- Create
-	public boolean creaVoce(String nome, String cognome, String telefono, int id){
-		boolean token = false;
+	public int creaVoce(String nome, String cognome, String telefono, int id){
+		int token = 0;
 		PreparedStatement st = null;
 		try {
 			Connection con = DataSource.getInstance().getConnection();
 			String sql = "INSERT INTO VOCE (NOME, COGNOME, TELEFONO, ID_RUBRICA) VALUES (?, ?, ?, ?)";
-			st = con.prepareStatement(sql);
+			st = con.prepareStatement(sql, new String[]{"ID_VOCE"});
 			st.setString(1, nome);
 			st.setString(2, cognome);
 			st.setString(3, telefono);
 			st.setInt(4, id);
-			int res = st.executeUpdate();
-			if(res>0){
-				token = true;
+			st.executeUpdate();
+			ResultSet rs = st.getGeneratedKeys();
+			if(rs.next()&&rs!=null){
+				token = rs.getInt(1);
 			}
 		} catch (SQLException | IOException | PropertyVetoException e) {
 			// TODO Auto-generated catch block
